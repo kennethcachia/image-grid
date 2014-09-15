@@ -1,0 +1,27 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="image-grid-item.html">
+
+<!--
+A simple image grid.
+
+##### Example
+
+    <image-grid></image-grid>
+
+@element image-grid
+@blurb A simple image grid.
+@status alpha
+@homepage http://kennethcachia.github.io/image-grid
+-->
+<polymer-element name="image-grid">
+
+  <template>
+    <link rel="stylesheet" href="image-grid.css" />    
+    <content select="image-grid-item"></content>
+  </template>
+
+  <script>
+    Polymer({});
+  </script>
+
+</polymer-element>

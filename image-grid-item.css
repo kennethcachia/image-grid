@@ -1,0 +1,22 @@
+:host {
+  position: relative;
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 25%;
+}
+
+.intrinsic-wrapper {
+  height: 0;
+  padding-bottom: 100%;
+}
+
+polyfill-next-selector { content: ':host .intrinsic-wrapper > img'; }
+::content img {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
