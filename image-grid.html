@@ -5,15 +5,18 @@
 A simple image grid.
 
 ##### Example
-
-    <image-grid></image-grid>
+  <image-grid>
+    <image-grid-item><img src="1.jpg"/></image-grid-item>
+    <image-grid-item><img src="2.jpg"/></image-grid-item>
+    ..
+  </image-grid>
 
 @element image-grid
 @blurb A simple image grid.
 @status alpha
 @homepage http://kennethcachia.github.io/image-grid
 -->
-<polymer-element name="image-grid">
+<polymer-element name="image-grid" attributes="action">
 
   <template>
     <link rel="stylesheet" href="image-grid.css" />    
@@ -21,7 +24,44 @@ A simple image grid.
   </template>
 
   <script>
-    Polymer({});
-  </script>
+    Polymer({
 
+      /**
+       * An optional action that's shown on top of the image on hover.
+       *
+       * @attribute action
+       * @type String
+       * @default ''
+       */
+      action: '',
+
+      /**
+       * Called when the element’s initial set of children
+       * are guaranteed to exist.
+       * 
+       * @method
+       */
+      domReady: function () {
+        this._setChildAttributes();
+      },
+
+      /**
+       * Sets attributes on nested <image-grid-item> elements,
+       * only if not set.
+       *
+       * @method
+       * @private
+       */
+      _setChildAttributes: function () {
+        if (this.action) {
+          var items = this.querySelectorAll('image-grid-item');
+
+          Array.prototype.forEach.call(items, function(item) {
+            item.action = item.action || this.action;
+          }.bind(this));
+        }
+      }
+
+    });
+  </script>
 </polymer-element>

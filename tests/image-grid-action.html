@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>image-grid</title>
+  <script src="../../platform/platform.js"></script>
+  <link rel="import" href="../../polymer-test-tools/tools.html">
+  <script src="../../polymer-test-tools/htmltest.js"></script>
+  <link rel="import" href="../image-grid.html">
+</head>
+<body>
+
+  <image-grid action="Preview">
+    <image-grid-item><img src="../assets/1.jpg"/></image-grid-item>
+    <image-grid-item action="Custom"><img src="../assets/2.jpg"/></image-grid-item>
+  </image-grid>
+
+  <script>
+    var grid = document.querySelector('image-grid');
+
+    /**
+     * Checks the initial value of the action attribute.
+     *
+     * @method
+     * @private
+     */
+    function _testInit() {
+      assert.equal(grid.action, 'Preview');
+    }
+
+    /**
+     * Checks that the action attribute of nested <image-grid-item>
+     * is equal to the value set on <image-grid>, unless it was specified.
+     *
+     * @method
+     * @private
+     */
+    function _testChildAttributes() {
+      var items = grid.querySelectorAll('image-grid-item');
+
+      Array.prototype.forEach.call(items, function(item) {
+        assert.equal(item.action, item.getAttribute('action') || grid.action);
+      });
+    }
+
+    document.addEventListener('polymer-ready', function() {
+      _testInit();
+      _testChildAttributes();
+      done();
+    });
+  </script>
+
+</body>
+</html>

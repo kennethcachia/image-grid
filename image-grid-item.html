@@ -1,18 +1,30 @@
 <link rel="import" href="../polymer/polymer.html">
 
-<polymer-element name="image-grid-item">
+<polymer-element name="image-grid-item" attributes="action">
 
   <template>
     <link rel="stylesheet" href="image-grid-item.css" />
-
     <div class="intrinsic-wrapper">
-      <content select="img"></content>
+      <div class="mask">
+        <content select="img"></content>
+    		<template if="{{action}}">
+    		  <div class="overlay"><button>{{action}}</button></div>
+    		</template>
+      </div>
     </div>
-
   </template>
 
   <script>
-    Polymer({});
+    Polymer({
+      /**
+       * An optional action that's shown on top of the image on hover.
+       *
+       * @attribute action
+       * @type String
+       * @default ''
+       */
+      action: ''
+    });
   </script>
 
 </polymer-element>
