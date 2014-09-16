@@ -16,37 +16,60 @@
   </image-grid>
 
   <script>
-    var grid = document.querySelector('image-grid');
-
-    /**
-     * Checks the initial value of the action attribute.
-     *
-     * @method
-     * @private
-     */
-    function _testInit() {
-      assert.equal(grid.action, 'Preview');
-    }
-
-    /**
-     * Checks that the action attribute of nested <image-grid-item>
-     * is equal to the value set on <image-grid>, unless it was specified.
-     *
-     * @method
-     * @private
-     */
-    function _testChildAttributes() {
-      var items = grid.querySelectorAll('image-grid-item');
-
-      Array.prototype.forEach.call(items, function(item) {
-        assert.equal(item.action, item.getAttribute('action') || grid.action);
-      });
-    }
-
     document.addEventListener('polymer-ready', function() {
+
+      var grid = document.querySelector('image-grid');
+      var items = grid.querySelectorAll('image-grid-item');
+      var first = items[0];
+
+      /**
+       * Checks the initial value of the action attribute.
+       *
+       * @method
+       * @private
+       */
+      function _testInit() {
+        assert.equal(grid.action, 'Preview');
+      }
+
+      /**
+       * Checks that the action attribute of nested <image-grid-item>
+       * is equal to the value set on <image-grid>, unless it was specified.
+       *
+       * @method
+       * @private
+       */
+      function _testChildAttributes() {
+        Array.prototype.forEach.call(items, function(item) {
+          assert.equal(item.action, item.getAttribute('action') || grid.action);
+        });
+      }
+
+      /**
+       * Checks that an action event is fired on <image-grid-item> click.
+       *
+       * @method
+       * @private
+       */
+      function _testActionEvent() {
+        var called = false;
+
+        grid.addEventListener('action', function () {
+          called = true;
+        });
+
+        first._onClick();
+        assert.equal(called, true);
+      }
+
+      // Run tests
       _testInit();
       _testChildAttributes();
+      _testActionEvent();
+
+      // Ready
       done();
+
     });
   </script>
 

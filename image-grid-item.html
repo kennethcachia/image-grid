@@ -8,7 +8,7 @@
       <div class="mask">
         <content select="img"></content>
     		<template if="{{action}}">
-    		  <div class="overlay"><button>{{action}}</button></div>
+    		  <div class="overlay" on-click="{{_onClick}}"><button>{{action}}</button></div>
     		</template>
       </div>
     </div>
@@ -23,7 +23,17 @@
        * @type String
        * @default ''
        */
-      action: ''
+      action: '',
+
+      /**
+       * Callback to a click event.
+       *
+       * @method
+       * @private
+       */
+      _onClick: function () {
+        this.fire('action');
+      }
     });
   </script>
 
