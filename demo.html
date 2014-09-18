@@ -6,15 +6,25 @@
   <script src="../platform/platform.js"></script>
   <link rel="import" href="image-grid.html">
   <link rel="import" href="image-grid-item.html">
-  <link rel="import" href="image-grid-item-linked.html">
+  <link rel="import" href="image-grid-item-link.html">
+  <link rel="import" href="image-grid-item-expand.html">
 </head>
 <body unresolved>
 
   <p>An example of using <code>&lt;image-grid></code>:</p>
 
   <image-grid action="Preview">
-    <image-grid-item-linked url="http://www.polymer-project.org/"><img src="assets/1.jpg"/></image-grid-item-linked>
-    <image-grid-item><img src="assets/4.jpg"/></image-grid-item>
+    <image-grid-item-link url="http://www.polymer-project.org/">
+      <img src="assets/1.jpg"/>
+    </image-grid-item-link>
+
+    <image-grid-item-expand>
+      <img src="assets/4.jpg"/>
+      <section>
+        <p>Internal content.</p>
+      </section>
+    </image-grid-item-expand>
+
     <image-grid-item><img src="assets/2.jpg"/></image-grid-item>
     <image-grid-item><img src="assets/3.jpg"/></image-grid-item>
     <image-grid-item><img src="assets/5.jpg"/></image-grid-item>

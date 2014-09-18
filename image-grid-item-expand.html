@@ -1,0 +1,41 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="image-grid-item.html">
+
+<polymer-element name="image-grid-item-expand" extends="image-grid-item">
+
+  <template>
+    <link rel="stylesheet" href="image-grid-item-expand.css" />
+    <shadow on-click="{{_showContent}}"></shadow>
+    <div class="content">
+      <content select="section"></content>
+      <div class="close" on-click="{{_hideContent}}"></div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      /**
+       * Shows the content panel.
+       *
+       * @method
+       * @private
+       */
+      _showContent: function () {
+        var content = this.shadowRoot.querySelector('.content');
+        content.classList.add('content--visible');
+      },
+
+      /**
+       * Hides the content panel.
+       *
+       * @method
+       * @private
+       */
+      _hideContent: function () {
+        var content = this.shadowRoot.querySelector('.content');
+        content.classList.remove('content--visible');
+      }
+    });
+  </script>
+
+</polymer-element>
