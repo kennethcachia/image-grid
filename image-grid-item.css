@@ -9,7 +9,22 @@
 polyfill-next-selector { content: ':host .intrinsic-wrapper img'; }
 ::content img {
   display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+polyfill-next-selector { content: ':host .intrinsic-wrapper img.portrait'; }
+::content img.portrait {
   width: 100%;
+}
+
+polyfill-next-selector { content: ':host .intrinsic-wrapper img.landscape'; }
+::content img.landscape {
+  height: 100%;
 }
 
 .intrinsic-wrapper {
@@ -17,11 +32,6 @@ polyfill-next-selector { content: ':host .intrinsic-wrapper img'; }
   padding-bottom: 100%;
 }
 
-.mask {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
+.landscape {
+  height: 100%;
 }

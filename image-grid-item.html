@@ -5,14 +5,57 @@
   <template>
     <link rel="stylesheet" href="image-grid-item.css" />
     <div class="intrinsic-wrapper">
-      <div class="mask">
-        <content select="img"></content>
-      </div>
+      <content select="img"></content>
     </div>
   </template>
 
   <script>
-    Polymer({});
+    Polymer({
+      /**
+       * Callback to when an instance of the element is created.
+       *
+       * @method
+       */
+      created: function () {
+        var img = this.querySelector('img');
+
+        if (this._isImageLoaded(img)) {
+          this._checkSize(img);
+        } else {
+          img.onload(this._checkSize.bind(this));
+        }
+      },
+
+      /**
+       * Adds a portrait of landscape class to an image.
+       *
+       * @method
+       * @private
+       * @param {Element} img The <img> to check.
+       */
+      _checkSize: function (img) {
+        var width = img.naturalWidth;
+        var height = img.naturalHeight;
+        var isPortrait = height >= width;
+
+        img.classList.add(isPortrait ? 'portrait' : 'landscape');
+      },
+
+      /**
+       * Checks if an image is already loaded.
+       *
+       * @method
+       * @private
+       * @param {Element} img The <img> to check.
+       * @returns {Boolean} True if it's loaded.
+       */
+      _isImageLoaded: function (img) {
+        var isComplete = img.complete;
+        var width = img.naturalWidth;
+
+        return (isComplete && width > 0);
+      }
+    });
   </script>
 
 </polymer-element>
