@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>image-grid-item-linked</title>
+  <script src="../../platform/platform.js"></script>
+  <link rel="import" href="../../polymer-test-tools/tools.html">
+  <script src="../../polymer-test-tools/htmltest.js"></script>
+  <link rel="import" href="../image-grid.html">
+  <link rel="import" href="../image-grid-item-linked.html">
+</head>
+<body>
+
+  <image-grid>
+    <image-grid-item-linked url="http://www.polymer-project.org/">
+      <img src="../assets/1.jpg"/>
+    </image-grid-item-linked>
+  </image-grid>
+
+  <script>
+    document.addEventListener('polymer-ready', function() {
+
+      var grid = document.querySelector('image-grid');
+      var item = grid.querySelector('image-grid-item-linked');
+
+      /**
+       * Checks that an anchor link is constructed around the
+       * original markup provided by <image-grid-item> with
+       * the appropriate href attribute.
+       *
+       * @method
+       * @private
+       */
+      function _testMarkup() {
+        var anchor = item.shadowRoot.querySelector('a');
+
+        assert.isDefined(anchor);
+        assert.equal(anchor.href, 'http://www.polymer-project.org/');
+      }
+
+      _testMarkup();
+      done();
+
+    });
+  </script>
+
+</body>
+</html>

@@ -5,14 +5,16 @@
   <title>image-grid Demo</title>
   <script src="../platform/platform.js"></script>
   <link rel="import" href="image-grid.html">
+  <link rel="import" href="image-grid-item.html">
+  <link rel="import" href="image-grid-item-linked.html">
 </head>
 <body unresolved>
 
   <p>An example of using <code>&lt;image-grid></code>:</p>
 
   <image-grid action="Preview">
-    <image-grid-item><img src="assets/1.jpg"/></image-grid-item>
-    <image-grid-item action="Custom"><img src="assets/4.jpg"/></image-grid-item>
+    <image-grid-item-linked url="http://www.polymer-project.org/"><img src="assets/1.jpg"/></image-grid-item-linked>
+    <image-grid-item><img src="assets/4.jpg"/></image-grid-item>
     <image-grid-item><img src="assets/2.jpg"/></image-grid-item>
     <image-grid-item><img src="assets/3.jpg"/></image-grid-item>
     <image-grid-item><img src="assets/5.jpg"/></image-grid-item>
@@ -30,15 +32,6 @@
   <a href="https://www.flickr.com/photos/tabor-roeder/10198394285" target="_blank">6</a>
   <a href="https://www.flickr.com/photos/19942094@N00/6215844837" target="_blank">7</a>
   <a href="https://www.flickr.com/photos/aleksivic/9169938543" target="_blank">8</a>
-
-  <script>
-    var grid = document.querySelector('image-grid');
-
-    grid.addEventListener('action', function (e) {
-      alert('Action! - ' + e.target.action);
-      console.log(e.target);
-    });
-  </script>
 
 </body>
 </html>
