@@ -2,10 +2,10 @@
   "name": "image-grid",
   "version": "0.0.0",
   "authors": [
-    "Anonymous <anonymous@example.com>"
+    "Kenneth Cachia <kcachia@gmail.com>"
   ],
-  "description": "Element providing solution to no problem in particular.",
-  "keywords": "seed, polymer, web-components",
+  "description": "A simple image grid.",
+  "keywords": "image, grid, polymer, web-components",
   "main": "image-grid.html",
   "license": "MIT",
   "homepage": "https://github.com/kennethcachia/image-grid/",
