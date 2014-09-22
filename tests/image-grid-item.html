@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>image-grid-item-link</title>
+  <script src="../../platform/platform.js"></script>
+  <link rel="import" href="../../polymer-test-tools/tools.html">
+  <script src="../../polymer-test-tools/htmltest.js"></script>
+  <link rel="import" href="../image-grid.html">
+  <link rel="import" href="../image-grid-item.html">
+</head>
+<body>
+
+  <image-grid>
+    <image-grid-item><img src="../assets/1.jpg"/></image-grid-item>
+    <image-grid-item><img src="../assets/4.jpg"/></image-grid-item>
+  </image-grid>
+
+  <script>
+    document.addEventListener('polymer-ready', function() {
+
+      var grid = document.querySelector('image-grid');
+      var items = grid.querySelectorAll('image-grid-item');
+      var first = items[0];
+      var second = items[1];
+
+      /**
+       * Checks that the appropriate size class is added.
+       * @method
+       */
+      function testSizeClass() {
+        assert.equal(first.querySelector('img').className, 'landscape');
+        assert.equal(second.querySelector('img').className, 'portrait');
+      }
+
+      testSizeClass();
+      done();
+
+    });
+  </script>
+
+</body>
+</html>
