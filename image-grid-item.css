@@ -31,7 +31,3 @@ polyfill-next-selector { content: ':host .intrinsic-wrapper img.landscape'; }
   height: 0;
   padding-bottom: 100%;
 }
-
-.landscape {
-  height: 100%;
-}
