@@ -3,7 +3,7 @@
   display: block;
   float: left;
   overflow: hidden;
-  width: 25%;
+  width: 50%;
 }
 
 polyfill-next-selector { content: ':host .intrinsic-wrapper img'; }
@@ -30,4 +30,10 @@ polyfill-next-selector { content: ':host .intrinsic-wrapper img.landscape'; }
 .intrinsic-wrapper {
   height: 0;
   padding-bottom: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  :host {
+    width: 25%;
+  }
 }

@@ -1,6 +1,7 @@
 .wrapper {
   opacity: 1;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .wrapper-scale {
@@ -9,7 +10,7 @@
 
 .wrapper-translate {
   transform: scale(0.97) translate3d(0, 30px, 0);
-  opacity: .7;
+  opacity: .6;
 }
 
 .content {
@@ -21,10 +22,10 @@
   width: 100%;
   height: 100%;
   background-color: #fff;
-  padding: 40px 60px;
+  padding: 20px 30px;
 
   box-sizing: border-box;
-  transition: all 0.7s cubic-bezier(0.8, 0, 0.1, 1);
+  transition: transform 0.7s cubic-bezier(0.8, 0, 0.1, 1);
   transform: translate3d(0, 100%, 0);
 }
 
@@ -38,12 +39,15 @@
   cursor: pointer;
   position: fixed;
   opacity: 0;
-  top: 15px;
-  right: 15px;
+  top: 0px;
+  right: 0px;
   width: 15px;
   height: 15px;
+  padding: 15px;
   background-image: url('close.png');
-  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 15px;
 
   transition: opacity 0.7s 0.4s cubic-bezier(0.8, 0, 0.1, 1);
 }
@@ -51,4 +55,10 @@
 .close-visible {
   visibility: visible;
   opacity: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    padding: 40px 60px;
+  }
 }
