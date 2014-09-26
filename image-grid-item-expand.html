@@ -5,13 +5,15 @@
 
   <template>
     <link rel="stylesheet" href="image-grid-item-expand.css" />
-    <shadow on-click="{{_onItemClick}}"></shadow>
+
+    <div class="wrapper" on-click="{{_onItemClick}}">
+      <shadow></shadow>
+    </div>
 
     <div class="content">
       <content select="section"></content>
+      <div class="close" on-click="{{_onCloseClick}}"></div>
     </div>
-
-    <div class="close" on-click="{{_onCloseClick}}"></div>
   </template>
 
   <script>
@@ -22,15 +24,8 @@
        * @method
        */
       attached: function () {
+        this._wrapper = this.shadowRoot.querySelector('.wrapper');
         this._content = this.shadowRoot.querySelector('.content');
-      },
-
-      _add: function (className) {
-        this._content.classList.add(className);
-      },
-
-      _remove: function (className) {
-        this._content.classList.remove(className);
       },
 
       /**
@@ -38,83 +33,26 @@
        *
        * @method
        * @private
-       * @param {Event} e The Event object.
        */
-      _onItemClick: function (e) {
-        this._fillElement(e.target.parentNode);
-        this._add('content--visible');
-        this._add('content--fade-transition');
-        this._add('content--fade');
+      _onItemClick: function () {
+        this._wrapper.classList.add('wrapper-scale');
 
         this.async(function () {
-          this._add('content--expand-transition');
-          this._add('content--expand');
-
-          this.async(function () {
-            this._add('content--height');
-            this._showCloseButton();
-          }, null, 800);
-
-        }, null, 650);
+          this._wrapper.classList.add('wrapper-translate');
+          this._content.classList.add('content-visible');
+        }, null, 600);
       },
-
 
       /**
        * Callback to a close click.
        *
        * @method
        * @private
-       * @param {Event} e The Event object.
        */
-      _onCloseClick: function (e) {
-        this._hideCloseButton();
-        this._remove('content--height');
-        this._remove('content--expand');
-
-        this.async(function () {
-          this._remove('content--expand-transition');
-          this._remove('content--fade');
-
-          this.async(function () {
-            this._remove('content--visible');
-            this._remove('content--fade-transition');
-          }, null, 500);
-
-        }, null, 850)
-      },
-
-
-      /**
-       * Shows the close button.
-       *
-       * @method
-       * @private
-       */
-      _showCloseButton: function () {
-        this.shadowRoot.querySelector('.close').classList.add('close--visible');
-      },
-
-
-      /**
-       * Hides the close button.
-       *
-       * @method
-       * @private
-       */
-      _hideCloseButton: function () {
-        this.shadowRoot.querySelector('.close').classList.remove('close--visible');
-      },
-
-
-      _fillElement: function (element) {
-        var rect = element.getBoundingClientRect();
-        var scaleW = rect.width / window.innerWidth;
-        var scaleH = (window.innerWidth / window.innerHeight) * 100;
-
-        this._content.style.top = rect.top + 'px';
-        this._content.style.left = rect.left + 'px';
-        this._content.style.transform = 'scale(' + scaleW + ')';
-        this._content.style.height = scaleH + '%';
+      _onCloseClick: function () {
+        this._content.classList.remove('content-visible');
+        this._wrapper.classList.remove('wrapper-translate');
+        this._wrapper.classList.remove('wrapper-scale');
       }
     });
   </script>
