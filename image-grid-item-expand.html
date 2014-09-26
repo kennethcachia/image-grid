@@ -51,8 +51,11 @@
        */
       _onCloseClick: function () {
         this._content.classList.remove('content-visible');
-        this._wrapper.classList.remove('wrapper-translate');
-        this._wrapper.classList.remove('wrapper-scale');
+
+        this.async(function () {
+          this._wrapper.classList.remove('wrapper-translate');
+          this._wrapper.classList.remove('wrapper-scale');
+        }, null, 250);
       }
     });
   </script>
