@@ -1,7 +1,18 @@
 .wrapper {
+  position: relative;
   opacity: 1;
+  padding-bottom: 100%;
+
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
               opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wrapper-content {
+  position: absolute;
+  top: -6%;
+  left: -6%;
+  width: 112%;
+  height: 112%;
 }
 
 .wrapper-scale {
@@ -9,8 +20,8 @@
 }
 
 .wrapper-translate {
-  transform: scale(0.97) translate3d(0, 20px, 0);
   opacity: .6;
+  transform: scale(0.97) translate3d(0, 3%, 0);
 }
 
 .content {
