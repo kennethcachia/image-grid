@@ -12,8 +12,9 @@
 
     <div class="content">
       <content select="section"></content>
-      <div class="close" on-click="{{_onCloseClick}}"></div>
     </div>
+
+    <div class="close" on-click="{{_onCloseClick}}"></div>
   </template>
 
   <script>
@@ -26,6 +27,7 @@
       attached: function () {
         this._wrapper = this.shadowRoot.querySelector('.wrapper');
         this._content = this.shadowRoot.querySelector('.content');
+        this._close = this.shadowRoot.querySelector('.close');
       },
 
       /**
@@ -40,6 +42,7 @@
         this.async(function () {
           this._wrapper.classList.add('wrapper-translate');
           this._content.classList.add('content-visible');
+          this._close.classList.add('close-visible');
         }, null, 600);
       },
 
@@ -51,6 +54,7 @@
        */
       _onCloseClick: function () {
         this._content.classList.remove('content-visible');
+        this._close.classList.remove('close-visible');
 
         this.async(function () {
           this._wrapper.classList.remove('wrapper-translate');
