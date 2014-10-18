@@ -22,11 +22,11 @@
   <script>
     Polymer({
       /**
-       * The callback for when an instance of <image-grid-item-expand>
-       * is inserted into the DOM.
+       * The callback to when the element’s initial set of
+       * children are guaranteed to exist.
        * @method
        */
-      attached: function () {
+      domReady: function () {
         this._wrapper = this.shadowRoot.querySelector('.wrapper');
         this._content = this.shadowRoot.querySelector('.content');
         this._close = this.shadowRoot.querySelector('.close');

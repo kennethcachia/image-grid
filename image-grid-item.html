@@ -12,11 +12,11 @@
   <script>
     Polymer({
       /**
-       * Callback to when an instance of the element is created.
-       *
+       * The callback to when the element’s initial set of
+       * children are guaranteed to exist.
        * @method
        */
-      created: function () {
+      domReady: function () {
         var img = this.querySelector('img');
 
         if (this._isImageLoaded(img)) {
@@ -27,7 +27,7 @@
       },
 
       /**
-       * Adds a portrait of landscape class to an image.
+       * Adds a portrait or landscape class to an image.
        *
        * @method
        * @private
