@@ -1,3 +1,7 @@
+:host {
+  cursor: pointer;
+}
+
 .wrapper {
   position: relative;
   opacity: 1;
