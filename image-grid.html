@@ -4,9 +4,23 @@
 A simple image grid.
 
 ##### Example
-  <image-grid>
-    ..
-  </image-grid>
+
+    <image-grid>
+
+      <image-grid-item>
+        <img src="1.jpg"/>
+      </image-grid-item>
+
+      <image-grid-item-link url="http://..">
+        <img src="2.jpg"/>
+      </image-grid-item-link>
+
+      <image-grid-item-expand>
+        <img src="2.jpg"/>
+        <section><p>Additional content</p></section>
+      </image-grid-item-expand>
+
+    </image-grid>
 
 @element image-grid
 @blurb A simple image grid.
@@ -16,7 +30,7 @@ A simple image grid.
 <polymer-element name="image-grid">
 
   <template>
-    <link rel="stylesheet" href="image-grid.css" />    
+    <link rel="stylesheet" href="image-grid.css" />
     <content select="image-grid-item, image-grid-item-link, image-grid-item-expand"></content>
   </template>
 
