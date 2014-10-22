@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>image-grid Demo</title>
+  <script src="../platform/platform.js"></script>
+  <link rel="import" href="image-grid.html">
+  <link rel="import" href="image-grid-item.html">
+  <link rel="import" href="image-grid-item-link.html">
+  <link rel="import" href="image-grid-item-expand.html">
+
+  <style>
+    section,
+    section img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body unresolved>
+  <p>Using <code>&lt;image-grid-item&gt;</code></p>
+
+  <image-grid>
+    <image-grid-item><img src="assets/800x800.gif"/></image-grid-item>
+    <image-grid-item><img src="assets/800x300.gif"/></image-grid-item>
+    <image-grid-item><img src="assets/300x300.gif"/></image-grid-item>
+    <image-grid-item><img src="assets/300x800.gif"/></image-grid-item>
+  </image-grid>
+
+  <p>Using <code>&lt;image-grid-item-link&gt;</code></p>
+
+  <image-grid>
+    <image-grid-item-link url="http://www.polymer-project.org/">
+      <img src="assets/800x800.gif"/>
+    </image-grid-item-link>
+
+    <image-grid-item-link url="http://www.polymer-project.org/">
+      <img src="assets/800x300.gif"/>
+    </image-grid-item-link>
+
+    <image-grid-item-link url="http://www.polymer-project.org/">
+      <img src="assets/300x300.gif"/>
+    </image-grid-item-link>
+
+    <image-grid-item-link url="http://www.polymer-project.org/">
+      <img src="assets/300x800.gif"/>
+    </image-grid-item-link>
+  </image-grid>
+
+  <p>Using <code>&lt;image-grid-item-expand&gt;</code></p>
+
+  <image-grid>
+    <image-grid-item-expand>
+      <img src="assets/800x800.gif"/>
+      <section>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </section>
+    </image-grid-item-expand>
+
+    <image-grid-item-expand>
+      <img src="assets/800x300.gif"/>
+      <section>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </section>
+    </image-grid-item-expand>
+
+    <image-grid-item-expand>
+      <img src="assets/300x300.gif"/>
+      <section>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </section>
+    </image-grid-item-expand>
+
+    <image-grid-item-expand>
+      <img src="assets/300x800.gif"/>
+      <section>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </section>
+    </image-grid-item-expand>
+  </image-grid>
+
+  <p>Image grid items can be mixed within the same grid.</p>
+</body>
+</html>

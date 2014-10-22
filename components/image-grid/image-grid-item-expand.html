@@ -1,0 +1,71 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="image-grid-item.html">
+
+<polymer-element name="image-grid-item-expand" extends="image-grid-item">
+
+  <template>
+    <link rel="stylesheet" href="image-grid-item-expand.css" />
+
+    <div class="wrapper" on-click="{{_onItemClick}}">
+      <div class="wrapper-content">
+        <shadow></shadow>
+      </div>
+    </div>
+
+    <div class="content">
+      <content select="section"></content>
+    </div>
+
+    <div class="close" on-click="{{_onCloseClick}}"></div>
+  </template>
+
+  <script>
+    Polymer({
+      /**
+       * The callback to when the element’s initial set of
+       * children are guaranteed to exist.
+       * @method
+       */
+      domReady: function () {
+        this.super();
+
+        this._wrapper = this.shadowRoot.querySelector('.wrapper');
+        this._content = this.shadowRoot.querySelector('.content');
+        this._close = this.shadowRoot.querySelector('.close');
+      },
+
+      /**
+       * Callback to an item click.
+       *
+       * @method
+       * @private
+       */
+      _onItemClick: function () {
+        this._wrapper.classList.add('wrapper-scale');
+
+        this.async(function () {
+          this._wrapper.classList.add('wrapper-translate');
+          this._content.classList.add('content-visible');
+          this._close.classList.add('close-visible');
+        }, null, 600);
+      },
+
+      /**
+       * Callback to a close click.
+       *
+       * @method
+       * @private
+       */
+      _onCloseClick: function () {
+        this._content.classList.remove('content-visible');
+        this._close.classList.remove('close-visible');
+
+        this.async(function () {
+          this._wrapper.classList.remove('wrapper-translate');
+          this._wrapper.classList.remove('wrapper-scale');
+        }, null, 250);
+      }
+    });
+  </script>
+
+</polymer-element>

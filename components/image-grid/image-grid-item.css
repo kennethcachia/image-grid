@@ -1,0 +1,39 @@
+:host {
+  position: relative;
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+
+polyfill-next-selector { content: ':host .intrinsic-wrapper img'; }
+::content img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+polyfill-next-selector { content: ':host .intrinsic-wrapper img.portrait'; }
+::content img.portrait {
+  width: 100%;
+}
+
+polyfill-next-selector { content: ':host .intrinsic-wrapper img.landscape'; }
+::content img.landscape {
+  height: 100%;
+}
+
+.intrinsic-wrapper {
+  height: 0;
+  padding-bottom: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  :host {
+    width: 25%;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "image-grid#gh-pages",
+  "private": true,
+  "dependencies": {
+    "image-grid": "kennethcachia/image-grid#master"
+  }
+}

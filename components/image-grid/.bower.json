@@ -1,0 +1,28 @@
+{
+  "name": "image-grid",
+  "authors": [
+    "Kenneth Cachia <kcachia@gmail.com>"
+  ],
+  "description": "A simple image grid.",
+  "keywords": "image, grid, polymer, web-components",
+  "main": "image-grid.html",
+  "license": "MIT",
+  "homepage": "https://github.com/kennethcachia/image-grid/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#>=0.4.0 <1.0.0",
+    "polymer-test-tools": "Polymer/polymer-test-tools#>=0.4.0 <1.0.0"
+  },
+  "_release": "ed482d5fe2",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ed482d5fe22a38afdca8cbe20d25a87d52bf0a81"
+  },
+  "_source": "git://github.com/kennethcachia/image-grid.git",
+  "_target": "master",
+  "_originalSource": "kennethcachia/image-grid",
+  "_direct": true
+}
