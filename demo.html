@@ -17,46 +17,38 @@
   </style>
 </head>
 <body unresolved>
-
-  <p>An example of using <code>&lt;image-grid></code>:</p>
+  <p>Using <code>&lt;image-grid-item&gt;</code></p>
 
   <image-grid>
     <image-grid-item><img src="assets/800x800.gif"/></image-grid-item>
+    <image-grid-item><img src="assets/800x300.gif"/></image-grid-item>
+    <image-grid-item><img src="assets/300x300.gif"/></image-grid-item>
+    <image-grid-item><img src="assets/300x800.gif"/></image-grid-item>
+  </image-grid>
+
+  <p>Using <code>&lt;image-grid-item-link&gt;</code></p>
+
+  <image-grid>
+    <image-grid-item-link url="http://www.polymer-project.org/">
+      <img src="assets/800x800.gif"/>
+    </image-grid-item-link>
 
     <image-grid-item-link url="http://www.polymer-project.org/">
       <img src="assets/800x300.gif"/>
     </image-grid-item-link>
 
-    <image-grid-item-expand>
+    <image-grid-item-link url="http://www.polymer-project.org/">
+      <img src="assets/300x300.gif"/>
+    </image-grid-item-link>
+
+    <image-grid-item-link url="http://www.polymer-project.org/">
       <img src="assets/300x800.gif"/>
-      <section>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor mi in ipsum maximus, vitae vestibulum ex iaculis. Nullam consectetur dapibus blandit. Vestibulum volutpat ex ac neque euismod, quis euismod mauris porta.</p>
+    </image-grid-item-link>
+  </image-grid>
 
-        <p>Etiam efficitur, tortor eget hendrerit consequat, lorem dui aliquet diam, ac ullamcorper dui magna ut risus. Integer dignissim risus a tortor condimentum commodo. Proin lacinia egestas vulputate. Mauris eget lobortis lectus, id efficitur felis. Integer placerat, libero nec gravida placerat, nisi leo volutpat nisl, ut vehicula arcu risus eget urna. Praesent tempus ligula vel magna porttitor tristique. Pellentesque in felis euismod, euismod ante eu, porttitor quam. Curabitur congue et nibh faucibus varius. Proin semper leo et quam pellentesque ornare.</p>
+  <p>Using <code>&lt;image-grid-item-expand&gt;</code></p>
 
-        <p>Suspendisse quam quam, feugiat eget elementum sit amet, placerat vitae justo. Nam vel diam vulputate, consequat risus quis, tristique diam. Sed ac interdum magna.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor mi in ipsum maximus, vitae vestibulum ex iaculis. Nullam consectetur dapibus blandit. Vestibulum volutpat ex ac neque euismod, quis euismod mauris porta.</p>
-
-        <p>Etiam efficitur, tortor eget hendrerit consequat, lorem dui aliquet diam, ac ullamcorper dui magna ut risus. Integer dignissim risus a tortor condimentum commodo. Proin lacinia egestas vulputate. Mauris eget lobortis lectus, id efficitur felis. Integer placerat, libero nec gravida placerat, nisi leo volutpat nisl, ut vehicula arcu risus eget urna. Praesent tempus ligula vel magna porttitor tristique. Pellentesque in felis euismod, euismod ante eu, porttitor quam. Curabitur congue et nibh faucibus varius. Proin semper leo et quam pellentesque ornare.</p>
-
-        <p>Suspendisse quam quam, feugiat eget elementum sit amet, placerat vitae justo. Nam vel diam vulputate, consequat risus quis, tristique diam. Sed ac interdum magna.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor mi in ipsum maximus, vitae vestibulum ex iaculis. Nullam consectetur dapibus blandit. Vestibulum volutpat ex ac neque euismod, quis euismod mauris porta.</p>
-
-        <p>Etiam efficitur, tortor eget hendrerit consequat, lorem dui aliquet diam, ac ullamcorper dui magna ut risus. Integer dignissim risus a tortor condimentum commodo. Proin lacinia egestas vulputate. Mauris eget lobortis lectus, id efficitur felis. Integer placerat, libero nec gravida placerat, nisi leo volutpat nisl, ut vehicula arcu risus eget urna. Praesent tempus ligula vel magna porttitor tristique. Pellentesque in felis euismod, euismod ante eu, porttitor quam. Curabitur congue et nibh faucibus varius. Proin semper leo et quam pellentesque ornare.</p>
-
-        <p>Suspendisse quam quam, feugiat eget elementum sit amet, placerat vitae justo. Nam vel diam vulputate, consequat risus quis, tristique diam. Sed ac interdum magna.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tempor mi in ipsum maximus, vitae vestibulum ex iaculis. Nullam consectetur dapibus blandit. Vestibulum volutpat ex ac neque euismod, quis euismod mauris porta.</p>
-
-        <p>Etiam efficitur, tortor eget hendrerit consequat, lorem dui aliquet diam, ac ullamcorper dui magna ut risus. Integer dignissim risus a tortor condimentum commodo. Proin lacinia egestas vulputate. Mauris eget lobortis lectus, id efficitur felis. Integer placerat, libero nec gravida placerat, nisi leo volutpat nisl, ut vehicula arcu risus eget urna. Praesent tempus ligula vel magna porttitor tristique. Pellentesque in felis euismod, euismod ante eu, porttitor quam. Curabitur congue et nibh faucibus varius. Proin semper leo et quam pellentesque ornare.</p>
-
-        <p>Suspendisse quam quam, feugiat eget elementum sit amet, placerat vitae justo. Nam vel diam vulputate, consequat risus quis, tristique diam. Sed ac interdum magna.</p>
-        <img src="assets/800x600.gif"/>
-      </section>
-    </image-grid-item-expand>
-
+  <image-grid>
     <image-grid-item-expand>
       <img src="assets/800x800.gif"/>
       <section>
@@ -72,25 +64,20 @@
     </image-grid-item-expand>
 
     <image-grid-item-expand>
+      <img src="assets/300x300.gif"/>
+      <section>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </section>
+    </image-grid-item-expand>
+
+    <image-grid-item-expand>
       <img src="assets/300x800.gif"/>
       <section>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </section>
     </image-grid-item-expand>
-
-    <image-grid-item-expand>
-      <img src="assets/800x600.gif"/>
-      <section>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </section>
-    </image-grid-item-expand>
-
-    <image-grid-item-expand>
-      <img src="assets/800x800.gif"/>
-      <section>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </section>
-    </image-grid-item-expand>
   </image-grid>
+
+  <p>Image grid items can be mixed within the same grid.</p>
 </body>
 </html>
