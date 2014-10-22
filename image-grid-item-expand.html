@@ -27,6 +27,8 @@
        * @method
        */
       domReady: function () {
+        this.super();
+
         this._wrapper = this.shadowRoot.querySelector('.wrapper');
         this._content = this.shadowRoot.querySelector('.content');
         this._close = this.shadowRoot.querySelector('.close');
